@@ -1,0 +1,110 @@
+1. mins Look at the data given below. Plot the data, find the outliers and find out 
+
+name_of_company<-c("allied_signals","bankers_trust","general_mills","ITT_industries","JP_morgan","lehman_bro",
+     "marriot","MCI","merill_lynch","microsoft","morgan_stanley","sun_microsystems","travelers",
+     "US_airways","warner_lambert")
+name_of_company
+Measure_x<-c(24.23,25.53,25.41,24.14,29.62,28.25,25.81,24.39,40.26,32.95,91.36,
+            25.99,39.42,26.71,35.00)
+Measure_x
+df1<-data.frame(name_of_company,Measure_x)
+df1
+attach(df1)
+plot(Measure_x,name_of_company,xlim=c(0,100))
+
+
+df <- df1[order(df1$Measure_x),] # ordering the cars 
+dev.off()
+df1$color[df1$Measure_x > 24 & df1$Measure_x < 26] <- "red" # assigning colors
+df1$color[df1$Measure_x > 26 & df1$Measure_x < 35] <- "blue" # assigning colors
+df1$color[df1$Measure_x > = 35 & df1$Measure_x < 92] <- "purple" #assigning colors
+dotchart(df1$Measure_x,labels=name_of_company,cex=.5, groups= df1$Measure_x,main="Company",xlab="Measure_x",color=df1$color,xlim=c(1,100))
+
+outlier(Measure_x)
+ 91.36
+> mean(Measure_x)
+[1] 33.27133
+> var(Measure_x)
+[1] 287.1466
+> sd(Measure_x)
+[1] 16.9454
+
+2.
+Answer the following three questions based on the box-plot above.
+
+(i) What is inter-quartile range of this dataset? (please approximate the numbers) In one line, explain what this value implies.
+
+in this box plot ,
+third quartile is 12 and first quartile is 5
+hence IQR is 12-5=7
+IQR=7
+
+its a better measure of a dataset where its not affected by outliers and its the space where median is.
+
+(ii) What can we say about the skewness of this dataset?
+If the longer part of the box is to the right (or above) the median, the data is said to be skewed right.So it is skewed right.
+
+(iii) If it was found that the data point with the value 25 is actually 2.5, how would the new box-plot be affected?
+
+if that value is 2.5 den it contributes to first quartile.and it wouldnt be a outlier anymore.
+
+3
+
+Answer the following three questions based on the histogram above.
+(i) Where would the mode of this dataset lie?
+its between 4- 7
+
+(ii) Comment on the skewness of the dataset.
+most of the data are on the left side of the histogram but a few larger values are on the right, the data are said to be skewed to the right.
+
+(iii) Suppose that the above histogram and the box-plot in question 2 are plotted for the same dataset. Explain how these graphs complement each other in providing information about any dataset. 
+
+Data presentation would be visible since both are right skewed.
+
+
+4. AT&T was running commercials in 1990 aimed at luring back customers who had switched to one of the other long-distance phone service providers. One such commercial shows a businessman trying to reach Phoenix and mistakenly getting Fiji, where a half-naked native on a beach responds incomprehensibly in Polynesian. When asked about this advertisement, AT&T admitted that the portrayed incident did not actually take place but added that this was an enactment of something that “could happen.” Suppose that one in 200 long-distance telephone calls is misdirected. What is the probability that at least one in five attempted telephone calls reaches the wrong number? (Assume independence of attempts.)
+
+probability that one long-distance telephone calls is misdirected p = 1/200 
+
+probability that at least one in five attempted telephone calls reaches the wrong number =
+
+1 - probability that none of the five calls are misdirected 
+= 1-(1-p)^5
+= 1 - (1-1/200)^5
+ 0.02475125
+
+5. Returns on a certain business venture, to the nearest $1,000, are known to follow the following probability distribution
+
+(i) What is the most likely monetary outcome of the business venture?
+	
+X=2000 ,probability of 0.3(highest)
+
+(ii) Is the venture likely to be successful? Explain
+p(x=1000)+p(x=2000)+p(x=3000)=0.6
+sum of non negative number is greater than 0.5 hence it will be successfull.
+
+iii) What is the long-term average earning of business ventures of this kind? Explain
+
+
+sum(xp(x)) of all
+
+(0.1)*(-2000)+
+(0.1)*(-1000)+
+(0)*(0.2)+
+(0.2)*(1000)+
+(0.3)*(2000)+
+(0.1)*(3000)
+=800
+
+average earnong of this venture is $800
+
+(iv) What is the good measure of the risk involved in a venture of this kind? Compute this measure
+
+Standard deviation=1469.693
+
+
+
+
+
+
+ 
